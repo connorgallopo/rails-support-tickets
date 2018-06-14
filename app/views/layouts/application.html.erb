@@ -19,9 +19,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rails Support Tickets</title>
-    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i" />
-    <link rel="stylesheet" href="untitled.css" />
+    <link rel="stylesheet" href="assets/css/untitled.css" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -45,8 +45,11 @@
         </div>
     </nav>
     <main class="page landing-page">
-        <section class="clean-block clean-hero" style="background-image:url(&quot;tech/image4.jpg&quot;);color:rgba(9, 162, 255, 0.85);"></section>
-        <%= yield %>
+        <section class="clean-block clean-hero" style="background-image:url(&quot;assets/images/image4.jpg&quot;);color:rgba(9, 162, 255, 0.85);">
+          <div>
+            <%= yield %>
+          </div>
+        </section>
     </main>
     <footer class="page-footer dark">
         <div class="footer-copyright">
