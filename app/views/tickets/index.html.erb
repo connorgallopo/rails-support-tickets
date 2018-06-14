@@ -1,1 +1,6 @@
-<h1>TEST</h1>
+<h1>Tickets</h1>
+<a><%= link_to "Open a Support Ticket", new_ticket_path, style: 'float: right' %></a>
+
+<% @tickets.each do |ticket| %>
+<%= render "ticket_index(ticket)" %>
+<% end %>
