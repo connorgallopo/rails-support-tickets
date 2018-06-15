@@ -4,8 +4,9 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = Ticket.new
+    @ticket = Ticket.create(ticket_params)
     @ticket.user = User.find(session[:user_id])
+    @ticket.status = "new"
     @ticket.save
     redirect_to ticket_path(@ticket.id)
   end
@@ -13,4 +14,14 @@ class TicketsController < ApplicationController
   def index
     @tickets = Ticket.all
   end
+
+  def show
+    @ticket = Ticket.find(params[:id])
+  end
+  private
+
+  def ticket_params
+    params.require(:ticket).permit(:title, :body, :due_date)
+  end
+
 end

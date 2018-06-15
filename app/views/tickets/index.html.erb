@@ -1,6 +1,39 @@
 <h1>Tickets</h1>
 <a><%= link_to "Open a Support Ticket", new_ticket_path, style: 'float: right' %></a>
-<% binding.pry %>
 <% @tickets.each do |ticket| %>
-  <%= render partial: "ticket", locals: {ticket:ticket} %>
+  <div class="col-md-8"><%= render partial: "ticket", locals: {ticket:ticket} %></div>
 <% end %>
+
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+        <th width="5%">Ticket&nbsp;#</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Reported&nbsp;by</th>
+        <th>Assigned&nbsp;to</th>
+      </tr>
+  </thead>
+  <tbody>
+    <% @tickets.each do |ticket| %>
+    <tr>
+      <td>
+        <a><%= link_to "#{ticket.id}", ticket_path(ticket)%></a>
+      </td>
+      <td class="body">
+        <p><%= "#{ticket.body}" %>
+      </td>
+      <td class="status">
+        <div>
+          <span><%= "#{ticket.status}" %></span>
+        </div>
+        <td class="reported-by">
+          <p><%= "#{ticket.user.email}" %></p>
+        </td>
+        <td class="assigned-to">
+          <p><%= "fix this" %></p>
+        </td>
+    <% end %>
+  </tr>
+</table>
