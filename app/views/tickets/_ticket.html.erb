@@ -1,4 +1,17 @@
 
-  <div style="float: left"> <%= link_to "#{ticket.title}", ticket_path(ticket), {:style=>'float: left; color: black'} %><br>
-    <p style="text-allign: center"><%= ticket.body %></p>
+<div class="hidden-xs panel panel-default">
+  <div class="panel-heading">
+    <div>
+      <h3 class="panel-title">Ticket <%= ticket.id %></h3>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div>
+      <div class="body">
+        <div>
+          <p><%= ticket.body %></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

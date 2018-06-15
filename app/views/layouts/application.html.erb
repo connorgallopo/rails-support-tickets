@@ -20,7 +20,7 @@
             <div class="collapse navbar-collapse"
                 id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
-                  <% if session[:user_id] %>
+                  <% if logged_in? %>
                     <li role="presentation"><%= link_to "Tickets", tickets_path, class: "nav-item nav-link active" %></a></li>
                     <!-- <li role="presentation"><%= link_to "Logout", logout_path, class: "nav-item nav-link active" %></a></li> -->
                     <% else %>
