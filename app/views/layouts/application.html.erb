@@ -1,19 +1,4 @@
 <!DOCTYPE html>
-<!-- <html>
-  <head>
-    <title>Rails Support Tickets</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
-</html>
-<html> -->
 <html>
 <head>
     <meta charset="utf-8" />
@@ -35,11 +20,13 @@
             <div class="collapse navbar-collapse"
                 id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
+                  <% if session[:user_id] %>
                     <li role="presentation"><%= link_to "Tickets", tickets_path, class: "nav-item nav-link active" %></a></li>
-                    <li role="presentation" class="nav-item"><a href="features.html" class="nav-link">Features</a></li>
-                    <li role="presentation" class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
-                    <li role="presentation" class="nav-item"><a href="about-us.html" class="nav-link">About Us</a></li>
-                    <li role="presentation" class="nav-item"><a href="contact-us.html" class="nav-link">Contact Us</a></li>
+                    <!-- <li role="presentation"><%= link_to "Logout", logout_path, class: "nav-item nav-link active" %></a></li> -->
+                    <% else %>
+                    <li role="presentation"><%= link_to "Login", login_path, class: "nav-item nav-link active" %></a></li>
+                    <li role="presentation"><%= link_to "Signup", new_user_path, class: "nav-item nav-link active" %></a></li>
+                    <% end %>
                 </ul>
             </div>
         </div>
