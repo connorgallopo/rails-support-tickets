@@ -1,6 +1,13 @@
 <h1>Tickets</h1>
-<a><%= link_to "Open a Support Ticket", new_ticket_path, style: 'float: right' %></a>
+<a><%= link_to "Open a Support Ticket", new_ticket_path, style: 'padding-left: 500pxa' %></a>
 
-<% @tickets.each do |ticket| %>
+<!-- <% @tickets.each do |ticket| %>
 <%= render "ticket_index(ticket)" %>
-<% end %>
+<% end %> -->
+<!-- <% binding.pry %>
+<% @tickets.each do |ticket| %>
+<% binding.pry %>
+  <%= ticket.id %>
+  <%= ticket.title %>
+  <% end %> -->
+<%= render @tickets %>
