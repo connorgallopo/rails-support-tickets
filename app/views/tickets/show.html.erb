@@ -1,1 +1,17 @@
 <%= render partial: "ticket", locals: {ticket:@ticket} %>
+
+<% @ticket.comments.each do |comment| %>
+<div class="comment">
+  <strong><%= comment.user.email %></strong>
+  <%= comment.content %>
+</div>
+<% end %>
+
+<%= form_for [@ticket, @comment] do |f| %>
+
+  <%= f.hidden_field :ticket_id, value: @ticket.id %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+
+  <%= f.submit %>
+<% end %>
