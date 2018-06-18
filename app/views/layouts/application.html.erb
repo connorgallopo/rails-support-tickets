@@ -1,50 +1,55 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Rails Support Tickets</title>
-    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i" />
-    <link rel="stylesheet" href="assets/css/untitled.css" />
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i"/>
+    <link rel="stylesheet" href="assets/css/untitled.css"/>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
+  </head>
 
-<body>
+  <body>
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-        <div class="container"><a href="#" class="navbar-brand logo">Rails Support Tickets</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse"
-                id="navcol-1">
-                <ul class="nav navbar-nav ml-auto">
-                  <% if logged_in? %>
-                    <li role="presentation"><%= link_to "Tickets", tickets_path, class: "nav-item nav-link active" %></a></li>
-                    <!-- <li role="presentation"><%= link_to "Logout", logout_path, class: "nav-item nav-link active" %></a></li> -->
-                    <% else %>
-                    <li role="presentation"><%= link_to "Login", login_path, class: "nav-item nav-link active" %></a></li>
-                    <li role="presentation"><%= link_to "Signup", new_user_path, class: "nav-item nav-link active" %></a></li>
-                    <% end %>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <main class="page">
-        <section class="clean-block" style="background-color:rgba(9, 162, 255, 0.85);">
-          <div class="container clean-block">
-            <%= yield %>
-              <div class="block-heading">
-          </div>
-        </div>
-        </section>
-    </main>
-    <footer class="page-footer dark">
-        <div class="footer-copyright">
-            <p>© 2018 Copyright Text</p>
-        </div>
-    </footer>
+      <div class="container">
+        <a href="#" class="navbar-brand logo">Rails Support Tickets</a>
+        <button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="nav navbar-nav ml-auto">
+            <% if logged_in? %>
+              <li role="presentation"><%= link_to "Tickets", tickets_path, class: "nav-item nav-link active" %></a>
+            </li>
+            <!-- <li role="presentation"><%= link_to "Logout", logout_path, class: "nav-item nav-link active" %></a></li> -->
+          <% else %>
+            <li role="presentation"><%= link_to "Login", login_path, class: "nav-item nav-link active" %></a>
+          </li>
+          <li role="presentation"><%= link_to "Signup", new_user_path, class: "nav-item nav-link active" %></a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+</nav>
+<main class="page">
+<section class="clean-block" style="background-color:rgba(9, 162, 255, 0.85);">
+  <div class="container clean-block">
+    <%= yield %>
+    <div class="block-heading"></div>
+  </div>
+</section>
+</main>
+<footer class="page-footer dark">
+<div class="footer-copyright">
+  <p>© 2018 Copyright Text</p>
+</div>
+</footer>
 </body>
 
 </html>
