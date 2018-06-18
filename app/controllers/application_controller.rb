@@ -7,4 +7,9 @@ class ApplicationController < ActionController::Base
   def current_user
     User.find(session[:user_id])
   end
+
+  def admin?
+    binding.pry
+    # current_user.admin == true
+  end
 end

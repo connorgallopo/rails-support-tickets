@@ -25,6 +25,9 @@
           <ul class="nav navbar-nav ml-auto">
             <% if logged_in? %>
               <li role="presentation"><%= link_to "Tickets", tickets_path, class: "nav-item nav-link active" %></a>
+               <% if admin? %>
+               <li role="presentation"><%= link_to "Admin Panel", admin_managementcontroller_index_path %>
+              <% end %>
             </li>
             <!-- <li role="presentation"><%= link_to "Logout", logout_path, class: "nav-item nav-link active" %></a></li> -->
           <% else %>
