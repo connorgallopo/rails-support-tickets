@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
-  resources :users
-  resources :tickets
+  resources :users, only: [:new, :create]
+  resources :tickets do
+    resources :comments
+  end
+  namespace :admin do
+    resources :users
+  end
 end
