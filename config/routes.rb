@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
   post '/assign' => 'tickets#assign'
+  get '/forbidden' => 'static_pages#forbidden'
+  get '/adminonly' => 'static_pages#admin'
   resources :users, only: %i[new create]
   resources :tickets do
     resources :comments

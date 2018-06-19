@@ -1,4 +1,5 @@
 class TicketsController < ApplicationController
+  before_action :require_login
   def new
     @ticket = Ticket.new
   end
