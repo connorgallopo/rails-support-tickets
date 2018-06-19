@@ -12,7 +12,6 @@ class TicketsController < ApplicationController
   end
 
   def index
-    binding.pry
     if admin?
       @tickets = Ticket.all
     else
@@ -23,6 +22,13 @@ class TicketsController < ApplicationController
   def show
     @ticket ||= Ticket.find(params[:id])
     @comment = Comment.new
+  end
+
+  def assign
+    @ticket = Ticket.find(params[:ticket_id])
+    @ticket.assigned_to = current_user.id
+    @ticket.save
+    redirect_to ticket_path(@ticket)
   end
   private
 

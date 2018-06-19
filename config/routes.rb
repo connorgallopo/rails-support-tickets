@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
+  post '/assign' => 'tickets#assign'
   resources :users, only: %i[new create]
   resources :tickets do
     resources :comments

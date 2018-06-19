@@ -8,4 +8,8 @@ class Ticket < ApplicationRecord
   def ticket_preview
     body
   end
+
+  def assigned_user
+    User.find(self.assigned_to)
+  end
 end

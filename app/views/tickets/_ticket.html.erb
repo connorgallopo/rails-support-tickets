@@ -1,8 +1,10 @@
-
 <div class="hidden-xs panel panel-default">
   <div class="panel-heading">
     <div>
-      <strong><h3 class="panel-title">Ticket <%= ticket.id %></h3></strong>
+      <strong>
+        <h3 class="panel-title">Ticket
+          <%= ticket.id %>: <%= ticket.title %></h3>
+      </strong>
     </div>
   </div>
   <div class="panel-body">
@@ -12,6 +14,17 @@
           <p><%= ticket.body %></p>
         </div>
       </div>
+      <strong>Reported by: <%= ticket.user.email %></strong><br>
+      <% if assigned?(ticket) %>
+        <strong>Assigned to:
+          <%= ticket.assigned_user.email %></strong>
+      <% end %>
     </div>
-  </div>
+    <% if admin? && !assigned?(ticket) %>
+      <%= form_tag("/assign", method: "post") do %>
+      <%= hidden_field_tag(:ticket_id, "#{ticket.id}") %>
+      <%= submit_tag("Assign Ticket to Me") %>
+    <% end %>
+  <% end %>
+</div>
 </div>
