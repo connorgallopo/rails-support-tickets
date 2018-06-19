@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "static_pages#home"
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  post '/logout' => 'sessions#destroy'
+  get '/logout' => 'sessions#destroy'
   post '/assign' => 'tickets#assign'
   resources :users, only: %i[new create]
   resources :tickets do
@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   end
   namespace :admin do
     resources :users
+    post '/admin/promote' => 'users#promote'
+    post '/admin/demote' => 'users#demote'
   end
 end

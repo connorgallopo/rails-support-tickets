@@ -1,0 +1,15 @@
+<% User.all.each do |user| %>
+  <%= user.email %>
+    <% if !user.admin? %>
+      <%= form_tag("admin/promote", method: "post") do %>
+      <%= hidden_field_tag(:user_id, "#{user.id}") %>
+      <%= submit_tag("Promote to Admin") %>
+      <% end %>
+    <% elsif user.admin? %>
+      <%= form_tag("admin/demote", method: "post") do %>
+      <%= hidden_field_tag(:user_id, "#{user.id}") %>
+      <%= submit_tag("Demote from Admin") %>
+      <% end %>
+  <% end %>
+<% end %>
+<br>

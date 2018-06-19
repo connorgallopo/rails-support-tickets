@@ -3,7 +3,7 @@
 <% @ticket.comments.each do |comment| %>
 <div class="comment">
   <strong><%= comment.user.email %></strong>
-  <%= comment.content %>
+  <%= link_to "#{comment.content}", ticket_comment_path(@ticket, comment) %>
 </div>
 <% end %>
 

@@ -8,6 +8,9 @@ class CommentsController < ApplicationController
     redirect_to ticket_path(@comment.ticket)
   end
 
+  def show
+    @comment ||= Comment.find(params[:id])
+  end
   private
 
   def comment_params
