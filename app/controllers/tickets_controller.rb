@@ -12,7 +12,12 @@ class TicketsController < ApplicationController
   end
 
   def index
-    @tickets = Ticket.all
+    binding.pry
+    if admin?
+      @tickets = Ticket.all
+    else
+      @tickets = Ticket.where("user_id = ?", current_user.id)
+    end
   end
 
   def show
