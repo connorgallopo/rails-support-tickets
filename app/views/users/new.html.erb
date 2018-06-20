@@ -1,5 +1,6 @@
-<%= form_for :user, url: '/users', :html => {class: "center-block col-md-4", style:"float: none; background-color: grey"} do |f| %>
-  Email: <%= f.text_field :email, required: true %>
+<%= form_for @user, url: '/users', :html => {class: "center-block col-md-4", style:"float: none; background-color: grey"} do |f| %>
+<%= form_errors_for @user %>
+  Email: <%= f.text_field :email%>
   Password:<%= f.password_field :password, required: true %>
   Confirm Password: <%= f.password_field :password_confirmation, required: true %>
    <%= f.submit "Submit" %>

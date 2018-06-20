@@ -44,6 +44,9 @@
 <section class="clean-block" style="background-color:rgba(9, 162, 255, 0.85);">
   <div class="container clean-block">
     <br>
+    <% if :form_errors %>
+    <%= yield :form_errors %>
+    <% end %>
     <%= yield %>
     <div class="block-heading"></div>
   </div>

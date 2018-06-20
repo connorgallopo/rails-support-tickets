@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
   before_action :require_login
   before_action :require_admin
-  skip_before_action :verify_authenticity_token  
+  skip_before_action :verify_authenticity_token
   def index; end
 
   def promote

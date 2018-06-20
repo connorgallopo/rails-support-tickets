@@ -1,4 +1,5 @@
 <%= form_for(@ticket) do |f| %>
+<%= form_errors_for @ticket %>
 
   <%= f.label :title %><br>
   <%= f.text_field :title, required: true %><br>

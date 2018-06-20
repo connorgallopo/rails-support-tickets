@@ -1,5 +1,5 @@
 <%= form_for(@comment) do |f| %>
-
+<%= form_errors_for @comment %>
 <%= f.hidden_field :ticket_id, value: @ticket.id %>
 <%= f.label :content %>
 <%= f.text_area :content %>
