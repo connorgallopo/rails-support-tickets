@@ -1,3 +1,7 @@
+
+<% if :form_errors %>
+<%=  form_errors_for(@user) %>
+<% end %>
 <%= form_for @user, url: '/users', :html => {class: "center-block col-md-4", style:"float: none; background-color: grey"} do |f| %>
 <%= form_errors_for @user %>
   Email: <%= f.text_field :email%>

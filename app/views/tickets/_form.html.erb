@@ -2,10 +2,10 @@
 <%= form_errors_for @ticket %>
 
   <%= f.label :title %><br>
-  <%= f.text_field :title, required: true %><br>
+  <%= f.text_field :title%><br>
 
   <%= f.label :body %><br>
-  <%= f.text_area :body, required: true %><br>
+  <%= f.text_area :body%><br>
 
   <%= f.label :due_date %><br>
   <%= f.text_field :due_date, "data-provide" => 'datepicker' %><br>

@@ -3,15 +3,19 @@ class CommentsController < ApplicationController
   def new; end
 
   def create
-    @comment = Comment.create(comment_params)
+    @comment = Comment.new(comment_params)
     @comment.user = User.find(session[:user_id])
-    @comment.save
-    redirect_to ticket_path(@comment.ticket)
+    if @comment.save
+      redirect_to ticket_path(@comment.ticket)
+    else
+      render :new
+    end
   end
 
   def show
     @comment ||= Comment.find(params[:id])
   end
+
   private
 
   def comment_params

@@ -5,11 +5,14 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = Ticket.create(ticket_params)
+    @ticket = Ticket.new(ticket_params)
     @ticket.user = User.find(session[:user_id])
     @ticket.status = "new"
-    @ticket.save
-    redirect_to ticket_path(@ticket.id)
+      if @ticket.save
+        redirect_to ticket_path(@ticket.id)
+      else
+        render :new
+      end
   end
 
   def index
