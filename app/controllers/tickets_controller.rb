@@ -1,12 +1,12 @@
 class TicketsController < ApplicationController
-  before_action :require_login
+  before_action :authenticate_user!
   def new
     @ticket = Ticket.new
   end
 
   def create
     @ticket = Ticket.new(ticket_params)
-    @ticket.user = User.find(session[:user_id])
+    @ticket.user = current_user
     @ticket.status = "new"
       if @ticket.save
         redirect_to ticket_path(@ticket.id)

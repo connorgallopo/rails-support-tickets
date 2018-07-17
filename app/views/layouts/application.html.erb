@@ -23,13 +23,13 @@
           <span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navcol-1">
           <ul class="nav navbar-nav ml-auto">
-            <% if logged_in? %>
+            <% if user_signed_in? %>
               <li role="presentation"><%= link_to "Tickets", tickets_path, class: "nav-item nav-link active" %></a>
                <% if admin? %>
                <li role="presentation"><%= link_to "Admin Panel", admin_users_path, class: "nav-item nav-link active" %>
               <% end %>
             </li>
-            <li role="presentation"><%= link_to "Logout", logout_path, class: "nav-item nav-link active" %></a></li>
+            <li role="presentation"><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "nav-item nav-link active" %></a></li>
           <% else %>
             <li role="presentation"><%= link_to "Login", new_user_session_path, class: "nav-item nav-link active" %></a>
           </li>
