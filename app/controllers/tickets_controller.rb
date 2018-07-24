@@ -15,6 +15,12 @@ class TicketsController < ApplicationController
       end
   end
 
+  def my_assigned_tickets
+    @tickets = Ticket.for(current_user)
+    render :index
+  end
+
+
   def index
     if admin?
       @tickets = Ticket.all

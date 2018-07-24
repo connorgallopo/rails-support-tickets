@@ -1,4 +1,15 @@
 <%= render partial: "ticket", locals: {ticket:@ticket} %>
+<br>
+<% if @ticket.assigned_to.nil? %>
+  <%= form_tag("/assign", method: "post") do %>
+  <%= hidden_field_tag(:ticket_id, "#{@ticket.id}") %>
+  <%= submit_tag("Assign to me") %>
+   <% end %>
+  <% else %>
+  <div class="assigned_user">
+    <strong>Assigned To:</strong>
+    <p> <%= @ticket.assigned_user.email %> </p>
+<% end %>
 
 <% @ticket.comments.each do |comment| %>
 <div class="comment">
