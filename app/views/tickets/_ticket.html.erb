@@ -14,7 +14,7 @@
           <p><%= ticket.body %></p>
         </div>
       </div>
-      <strong>Reported by:</strong><br> <%= ticket.user.email %>
+      <strong>Reported by:</strong><br> <%= ticket.user_email %>
     </div>
     <% if admin? && !assigned?(ticket) %>
       <%= form_tag("/assign", method: "post") do %>

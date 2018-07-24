@@ -9,6 +9,9 @@ class Ticket < ApplicationRecord
     where(assigned_to: user_id)
   end
 
+  delegate :email, to: :user, allow_nil: true, prefix: true
+  delegate :email, to: :assigned_user, allow_nil: true, prefix: true
+
   def ticket_preview
     body
   end

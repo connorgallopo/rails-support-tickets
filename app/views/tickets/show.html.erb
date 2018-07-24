@@ -8,7 +8,7 @@
   <% else %>
   <div class="assigned_user">
     <strong>Assigned To:</strong>
-    <p> <%= @ticket.assigned_user.email %> </p>
+    <p> <%= @ticket.assigned_user_email %> </p>
 <% end %>
 
 <% @ticket.comments.each do |comment| %>
