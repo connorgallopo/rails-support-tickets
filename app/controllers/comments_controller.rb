@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to ticket_path(@comment.ticket)
     else
-      render :new
+      render :show
     end
   end
 
