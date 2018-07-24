@@ -5,6 +5,10 @@ class Ticket < ApplicationRecord
   validates :body, presence: true
   validates :title, presence: true
 
+  scope :for, ->(user_id) do
+    where(assigned_to: user_id)
+  end
+
   def ticket_preview
     body
   end
