@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/assign' => 'tickets#assign'
   get '/forbidden' => 'static_pages#forbidden'
   get '/adminonly' => 'static_pages#admin'
-  get '/my_tickets' => 'tickets#my_assigned_tickets'
+  get '/my_tickets' => 'tickets#my_assigned_tickets', as: 'my_tickets'
   resources :users, only: %i[new create]
   resources :tickets do
     resources :comments

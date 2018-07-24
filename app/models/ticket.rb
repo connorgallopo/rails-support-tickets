@@ -14,6 +14,6 @@ class Ticket < ApplicationRecord
   end
 
   def assigned_user
-    User.find(self.assigned_to)
+    User.find_by(id: self.assigned_to)
   end
 end

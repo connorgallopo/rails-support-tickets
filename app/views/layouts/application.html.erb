@@ -26,6 +26,7 @@
             <% if user_signed_in? %>
               <li role="presentation"><%= link_to "Tickets", tickets_path, class: "nav-item nav-link active" %></a>
                <% if admin? %>
+               <li role="presentation"><%= link_to "My Assigned Tickets", my_tickets_path, class: "nav-item nav-link active" %></a>
                <li role="presentation"><%= link_to "Admin Panel", admin_users_path, class: "nav-item nav-link active" %>
               <% end %>
             </li>
